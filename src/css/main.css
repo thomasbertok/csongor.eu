@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Raleway, sans-serif, system-ui;
+  }
+}
+
+:root {
+  --dark: #2d2b2b;
+  --semi: #3c3a38;
+  --light: #e4e2df;
+  --accent: #f9dcba;
+  --alert: #3d2121;
+  --size-sm: "480px";
+  --blur-level: "10px";
+}
+
+body {
+  overflow: hidden;
+  color: var(--light);
+  font-weight: 300;
+  font-size: 1.25rem;
+  background-color: var(--dark);
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+h1 {
+  font-family: "Bodoni Moda", serif;
+  font-size: 6rem;
+  font-weight: 200;
+  color: var(--accent);
+}
+
+.btn {
+  font-weight: 400;
+  color: var(--accent);
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border: 1px solid var(--accent);
+  transition: background-color 0.125s ease-in-out;
+  font-size: 1.25rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+}
+
+.btn:focus,
+.btn:hover {
+  background-color: var(--accent);
+  color: var(--dark);
+}
+
+.btn.btn-primary {
+  background-color: var(--accent);
+  color: var(--dark);
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+/* HEADER */
+.main-header {
+  position: fixed;
+  z-index: 200;
+  left: 5rem;
+  top: 1.5rem;
+
+  @apply left-4 md:left-16 lg:left-20;
+}
+
+.logo {
+  min-width: 50px;
+  width: auto;
+  height: 40px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-title {
+  font-weight: 300;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 1;
+  text-align: left;
+  width: 100%;
+  padding-bottom: 2.5rem;
+  @apply pl-0 xl:pl-24;
+}
+
+.page-content {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 64px);
+  flex: 1;
+}
+
+.title-2 {
+  font-family: "Bodoni Moda", serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 5.625rem;
+  line-height: 1.125;
+  text-wrap: balance;
+  font-size: clamp(2.5rem, 3vw, 5rem);
+}
+
+.paragraph {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.25;
+  max-width: 620px;
+  letter-spacing: 0.01em;
+}
+
+.page.page-about .page-content {
+  font-size: inherit;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* fade in per words in a wrapper */
+/* div.fade-in-children > span */
+.fade-in-children > * {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(4px);
+}
+
+.fade-in-children :nth-child(1) {
+  animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.fade-in-children :nth-child(2) {
+  animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.fade-in-children :nth-child(3) {
+  animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.fade-in-children :nth-child(4) {
+  animation: fade-in 0.8s 0.7s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.fade-in-children :nth-child(5) {
+  animation: fade-in 0.8s 0.9s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.audio-button {
+}

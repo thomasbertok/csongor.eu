@@ -1,0 +1,183 @@
+/* ------------------- */
+/* PORTFOLIO MAIN PAGE */
+/* ------------------- */
+
+.page-portfolio {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-portfolio .page-title .link-back {
+  font-weight: 400;
+}
+
+.page-portfolio .page-content {
+}
+
+.page-portfolio .page-content > * {
+  height: 100%;
+}
+
+/* portfolio index page */
+.portfolio-main-section {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  transition: opacity 0.1s linear;
+  opacity: 1;
+
+  /* @apply pl-0 lg:pl-24; */
+}
+
+/* content of the main page */
+.portfolio-links {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  /* gap: 1rem; */
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-links .pf-item {
+  display: flex;
+  flex: 1 1 0;
+  min-height: 0;
+  align-items: center;
+  user-select: none;
+}
+
+.portfolio-links .pf-item:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.portfolio-links .pf-item:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+/* portfolio main category name */
+.portfolio-links .pf-item span {
+  font-family: "Bodoni Moda", serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: clamp(4rem, 10vw, 5.525rem);
+  margin-top: -1.5rem;
+  z-index: 2;
+  transition: transform 0.25s ease-in, opacity 0.125s linear;
+}
+
+/* portfolio main category image */
+.portfolio-links .pf-item img {
+  aspect-ratio: 1/1;
+  height: 100%;
+  opacity: 0.3;
+  z-index: 1;
+  transition: opacity 0.33s ease-in-out;
+}
+
+/* portfolio main category description */
+.portfolio-links .pf-item p {
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1.33;
+  margin-bottom: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  max-height: 3.75rem;
+}
+
+.portfolio-links .pf-item:nth-child(odd) p {
+  padding-left: 5rem;
+  padding-right: 2rem;
+}
+
+.portfolio-links .pf-item:nth-child(even) p {
+  padding-right: 5rem;
+  padding-left: 2rem;
+  text-align: right;
+}
+
+.portfolio-links .pf-item:nth-child(odd) span {
+  transform: translateX(-30%);
+}
+
+.portfolio-links .pf-item:nth-child(odd):hover span {
+  transform: translateX(16%);
+  opacity: 0.2;
+  filter: blur(2px);
+}
+
+.portfolio-links .pf-item:nth-child(even) span {
+  transform: translateX(30%);
+}
+
+.portfolio-links .pf-item:nth-child(even):hover span {
+  transform: translateX(-15%);
+  filter: blur(2px);
+  opacity: 0.2;
+}
+
+.portfolio-links .pf-item:hover p {
+  opacity: 1;
+}
+
+.portfolio-links .pf-item:hover img {
+  opacity: 1;
+}
+
+/* @media screen(md)  {
+    .portfolio-links .pf-item p {
+        background-color: red;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1200px)  {
+    .portfolio-links .pf-item p {
+        background-color: green;
+        opacity: 1;
+    }
+} */
+
+/* LIGHTBOX */
+.portfolio-lightbox {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 43, 43, 0.8);
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-lightbox.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.portfolio-lightbox-image {
+  max-width: 96%;
+  max-height: 96%;
+  cursor: pointer;
+  border: 8px solid var(--light);
+}
+
+.portfolio-lightbox-close {
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--accent);
+}

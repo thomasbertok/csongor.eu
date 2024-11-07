@@ -1,0 +1,103 @@
+.page-contact {
+  width: 100%;
+}
+
+
+/* ------------- */
+/* FORM ELEMENTS */
+/* ------------- */
+
+input[type="text"],
+input[type="email"] {
+  background-color: transparent;
+  font-size: 2rem;
+  padding-bottom: 0.25rem;
+  color: var(--light);
+  border-bottom: 1px solid var(--accent);
+  outline: none;
+  width: 100%;
+}
+
+/* ------------- */
+/* CHECKBOXES */
+/* ------------- */
+.checkbox-group {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  @apply grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+.label-check {
+  @apply text-sm md:text-lg;
+}
+
+.label-check input {
+  display: none;
+}
+
+.label-check label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--accent);
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.5;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 300;
+  min-height: clamp(3rem, 5vw, 4rem);
+}
+
+.label-check input:checked + label {
+  opacity: 1;
+  transition: all 0.125s linear;
+  text-align: left;
+}
+
+.label-check label img {
+  width: 0;
+  opacity: 0;
+  transition: all 0.125s linear;
+}
+
+.label-check input:checked + label img {
+  width: 36px;
+  height: auto;
+  opacity: 1;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+/* ------------- */
+/* INPUT GROUP */
+/* ------------- */
+.input-group {
+  position: relative;
+  z-index: 1;
+}
+
+.input-group label {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  font-size: 2rem;
+  color: var(--light);
+  transition: all 0.25s ease-out;
+}
+
+.input-group input {
+  z-index: 1;
+}
+
+.input-group input:focus + label,
+.input-group input.filled + label {
+  top: -1.75rem;
+  font-size: 1.25rem;
+  color: var(--accent);
+  opacity: 0.5;
+}

@@ -1,0 +1,115 @@
+/* MAIN NAV BLOCK */
+
+.main-navigation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    height: 100svh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: 
+        left .1s ease-out,
+        opacity .3s ease-out;
+        
+    background-color: var(--dark);
+}
+
+.main-navigation > ul {
+    margin-left: -1.25rem;
+}
+
+@media screen(lg) {
+    .main-navigation {
+        left: 66vw;
+        justify-content: flex-start;
+        padding-left: 5vw;
+        width: 33vw;
+        background-color: transparent;
+    }
+    .main-navigation > ul {
+        margin-left: 0;
+    }
+}
+
+.main-navigation.hidden {
+    opacity: 0;
+    left: 100%;
+}
+
+.main-navigation .nav-item {
+    font-weight: 300;
+    padding-left: 1rem;    
+    border-left: 1.25rem solid var(--accent);
+    border-left-color: transparent;
+    cursor: pointer;
+    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 3vw ,4rem);
+}
+
+.main-navigation .active-link .nav-item {
+    border-left-color: color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.main-navigation .nav-item:hover {
+    color: var(--light);
+    border-left-color: var(--accent);
+}
+
+
+.close-navigation {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent);
+    right: -100px;
+    transition: right .125s ease-in;
+    cursor: pointer;
+}
+.close-navigation.on {
+    right: 1.5rem;
+}
+
+/* MAIN NAV TOGGLE */
+.main-nav-toggle {
+    position: fixed;
+    z-index: 300;
+    top: 1rem;
+	display: flex;
+	width: 50px;
+	height: 50px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+    
+    /* right: 5rem; */
+    @apply right-2 md:right-16 lg:right-20;
+
+
+}
+
+.main-nav-toggle span,
+.main-nav-toggle::before,
+.main-nav-toggle::after {
+	content: "";
+	position: relative;
+	width: 16px;
+	height: 1px;
+	background-color: var(--accent);
+}
+
+.main-nav-toggle::before {
+	bottom: 5px;
+	width: 23px
+}
+
+.main-nav-toggle::after {
+	top: 5px;
+	width: 23px
+}

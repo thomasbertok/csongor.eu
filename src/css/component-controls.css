@@ -1,0 +1,73 @@
+/* side navigation */
+
+.full-page-controls {
+  position: fixed;
+  z-index: 1;
+  left: 5rem;
+  top: 5rem;
+  bottom: 1rem;
+  /* width: 200px; */
+  justify-content: start;
+  align-items: center;
+  @apply hidden lg:flex;
+}
+
+.full-page-controls .slide-links {
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-left: 1px solid var(--semi);
+  height: 50%;
+  max-height: 400px;
+}
+
+.full-page-controls .slide-links li {
+  position: relative;
+  margin-left: -8px;
+}
+
+.full-page-controls span {
+  opacity: 0;
+  transition: opacity 0.125s linear, color 0.25s ease-in-out;
+  text-wrap: balance;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  color: var(--light);
+  font-size: 1rem;
+  font-weight: 700;
+  padding-left: 1.5rem;
+}
+
+.full-page-controls li:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--semi);
+  font-size: 40px;
+  line-height: 1.5rem;
+  font-weight: 900;
+  content: "•";
+  transition: color 1s ease-in-out;
+  opacity: 1;
+}
+
+.full-page-controls li.active-link span {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.full-page-controls li:hover span {
+  opacity: 1;
+}
+
+.full-page-controls li:hover:before {
+  color: var(--accent);
+}
+
+.full-page-controls li.active-link:before {
+  color: var(--accent);
+  font-size: 20px;
+  left: 4px;
+}

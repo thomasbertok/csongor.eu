@@ -1,0 +1,55 @@
+/* portfolio sub page, 
+   secondary content, 
+   wrapper for slider */
+
+.portfolio-sub-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.1s linear;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 0;
+}
+
+/* .page-aside = sub-section is active */
+.page-content.page-aside .portfolio-main-section {
+  opacity: 0;
+  z-index: 0;
+  visibility: 0;
+}
+
+.page-content.page-aside .portfolio-sub-section {
+  opacity: 1;
+  visibility: visible;
+  /* slide up from under main content */
+  transform: translateY(-100%);
+  z-index: 10;
+}
+
+.portfolio-sub-section-content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-sub-section-navigation {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  width: 34%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.portfolio-sub-section-navigation .thumb {
+  border: 2px solid transparent;
+}
+
+.portfolio-sub-section-navigation .thumb.active {
+  border-color: #fff;
+}

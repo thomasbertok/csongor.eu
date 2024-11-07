@@ -1,0 +1,313 @@
+/* ------------------- */
+/* PORTFOLIO CAROUSEL  */
+/* ------------------- */
+
+.portfolio-sub-section .carousel-root {
+  height: 100%;
+}
+
+.portfolio-sub-section .carousel-slider {
+  height: 100%;
+}
+
+.portfolio-sub-section .carousel .slider-wrapper {
+  height: 100%;
+}
+
+.portfolio-sub-section .carousel .slider-wrapper .slider {
+  height: 100%;
+}
+
+.portfolio-sub-section .carousel .slider-wrapper .slider .slide {
+  padding-left: 2px; /* need to be there, otherwise next slide is visible */
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+
+.portfolio-sub-section .carousel .slider-wrapper .slider .slide.selected {
+  opacity: 1;
+}
+
+.portfolio-sub-section .carousel .slider-wrapper .slider .slide.previous:not(.selected) {
+  opacity: 0;
+}
+
+.portfolio-sub-section .carousel .slider-wrapper .slider .slide.selected .pfw-image {
+  opacity: 1;
+}
+
+/* Image with fixed aspect ratio fitting in a fluid wrapper */
+/* https://codepen.io/thomasbertok/pen/mdvjxbx */
+.portfolio-sub-section .carousel .slide .pfw-image-container {
+  @apply flex w-full lg:w-3/5 items-start lg:items-end relative cursor-pointer;
+}
+
+.portfolio-sub-section .carousel .slide .pfw-image {
+  border: 8px solid #e4e2df;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+.portfolio-sub-section .carousel .slide .pfw-image-container.pfw-image-container-active .pfw-image {
+}
+
+.pfw-image-lightbox {
+  background-color: var(--dark);
+  position: absolute;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-item {
+  width: 100%;
+  @apply flex flex-col lg:flex-row justify-start;
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    portfolio item text block: title + description
+    */
+.portfolio-item .pfw-text-container {
+  /* @apply flex w-full lg:w-2/5 items-end pt-3; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.portfolio-item .pfw-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 1.125rem;
+  text-align: left;
+  cursor: pointer;
+  padding: 1.5rem;
+  background-image: linear-gradient(
+    180deg,
+    rgba(45, 43, 43, 0.1) 0%,
+    rgba(45, 43, 43, 0.66) 50%,
+    rgba(45, 43, 43, 1) 100%
+  );
+  transform: translateY(100%);
+  transition: transform 0.25s ease-in, opacity 0.5s ease-in;
+
+  opacity: 0;
+}
+
+.pfw-image-container:hover .pfw-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-item .pfw-text .title {
+  width: 100%;
+  max-width: 720px;
+  transform: translateX(-100%);
+  filter: blur(5px);
+}
+
+.pfw-image-container:hover .pfw-text .title {
+  transform: translateX(0);
+  filter: blur(0);
+  transition: transform 0.5s, filter 1s;
+}
+
+.portfolio-item .pfw-text .paragraph {
+  transform: translateY(200%);
+  opacity: 0;
+}
+
+.portfolio-item .pfw-text:hover .paragraph {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out, opacity 0.6s ease-in-out;
+  transition-delay: 0.25s;
+}
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    THUMBNAILS SECTION
+*/
+.portfolio-sub-section .carousel-root {
+  position: relative;
+}
+
+.portfolio-sub-section .carousel-root .carousel:not(.carousel-slider) {
+}
+
+.portfolio-sub-section .carousel + .carousel {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+
+  @apply w-full lg:w-2/5;
+}
+
+.portfolio-sub-section .carousel .thumbs-wrapper {
+  margin: 0;
+}
+
+.portfolio-sub-section .carousel .thumbs-wrapper .control-arrow {
+  display: none !important;
+}
+
+.portfolio-sub-section .carousel .thumbs-wrapper .thumbs {
+  display: flex;
+  transform: translate3d(0, 0, 0) !important;
+  @apply p-4 md:p-0 justify-around sm:justify-center md:justify-end gap-4 flex-wrap md:gap-1 relative z-0;
+}
+
+.portfolio-sub-section .carousel .thumbs-wrapper .thumbs .thumb {
+  padding: 0;
+  margin: 0;
+  display: inherit;
+  border: 6px solid transparent;
+  cursor: pointer;
+
+  @apply w-0 h-0 md:!w-20 md:!h-20 rounded rounded-full md:rounded-none md:blur-[1px] opacity-30 border-white md:border-transparent;
+}
+
+.portfolio-sub-section .carousel .thumbs-wrapper .thumbs .thumb.selected {
+  border-color: var(--light);
+  filter: blur(0);
+  opacity: 1;
+}
+
+.portfolio-sub-section .carousel .thumbs-wrapper .thumbs .thumb:hover {
+  border-color: var(--light);
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* .portfolio-sub-section .carousel .thumbs-wrapper .thumbs .thumb img {
+  @apply hidden md:block md:w-20 md:h-20 bg-black;
+} */
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -------------
+    MEDIA QUERIES
+    -------------
+
+*/
+
+/* PORTRAIT */
+@media (orientation: portrait) {
+  /* .portfolio-sub-section {} */
+
+  .portfolio-item .pfw-text .title {
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+
+  .portfolio-sub-section .carousel .thumbs-wrapper .thumbs {
+    justify-content: center;
+  }
+}
+
+/* LANDSCAPE */
+@media (orientation: landscape) {
+  .portfolio-item {
+    height: 100%;
+  }
+
+  /* .portfolio-sub-section {} */
+}
+
+/* ANY mobile device */
+@media (hover: none) {
+  /* a {} */
+}
